@@ -1,0 +1,16 @@
+body{
+    background-color: black;
+    color:yellowgreen;
+    text-align: center;
+}
+
+th{
+    background-color: ivory;
+    border: yellowgreen 2px solid;
+}
+#schools{
+    background-color: red;
+} 
+#schools button{
+    background-color: whitesmoke;
+} 

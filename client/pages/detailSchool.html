@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/style.css">
+  <title>Détail</title>
+</head>
+<body>
+  <div id="corps">
+    <a href="/pages/school.html">Liste des voiture</a>
+    <h1>Détails</h1>
+    <form id="schoolModif">
+
+      <div class="row">
+        <div class="col-6">
+          <div class="form-group">
+            <label for="nameSchool">Nom de l'établissement</label>
+            <br>
+            <input type="text" class="form-control" id="nameSchool">
+          </div>
+        </div>
+
+        <div class="col-6">
+          <div class="form-group">
+            <label for="AdressSchool">Adresse de l'établissement</label>
+            <br>
+            <input type="text" class="form-control" id="AdressSchool">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-6">
+          <div class="form-group">
+            <label for="dptSchool">Département de l'établissement</label>
+            <br>
+            <input type="text" class="form-control" id="dptSchool">
+          </div>
+        </div>
+      </div>
+    </form>
+    <div class="validation">
+      <button class="btn btn-outline-success" id="modif">Modifier</button>
+    </div>
+  </div>
+  <script src="/js/detailSchool.js"></script>
+</body>
+</html>
