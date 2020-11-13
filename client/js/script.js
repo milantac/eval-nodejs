@@ -1,5 +1,4 @@
-/* Je crée mon objet XMLttpRequest */
-var xhttp=new XMLHttpRequest();
+var xhttp=new XMLHttpRequest(); /* Je crée mon objet XMLttpRequest */
 
 xhttp.onreadystatechange = function() {
 /* J'utilise la fonction onreadystatechange pour indiquer ce qui doit être fait lorsque je recois maa liste */
@@ -17,20 +16,21 @@ xhttp.onreadystatechange = function() {
         });
     }
 }
-                                                                    //la foction open permet de définirle type de requete
-xhttp.open("GET","/liste",true);                                    //l'url qui doit être contacté 
-                                                                    //la possibilité de gérer celal de manière asymchrone
+          /
+xhttp.open("GET","/liste",true);  
+//     ||           |      |=>True : La possibilité de gérer cela de manière asynchrone
+//     ||           |=>L'url qui doit être contacté
+//     ||=>La fonction open() permet de définir le type de requête                                                                    //la possibilité de gérer celal de manière asymchrone
 
-xhttp.send();                                                       //ici j'envoie la requête
+xhttp.send();   //  ici j'envoie la requête
 
-/*      je selection mo body        */
-var body = document.querySelector('body');
+var body = document.querySelector('body');  //je selection mon body 
 /*      création d'un UL        */
 var maListe = document.createElement('ul');
 /*      Ajout du UL dans ma page        */
 body.appendChild(maListe);
 
-/*      Je crée une fonction me permettant de créer un li qui prends en paramètre l'informaation        */ 
+/*      Je crée une fonction me permettant de créer un li qui prends en paramètre l'information        */ 
 function newLi(data) {
     var tmp = document.createElement('li');
 /*      Je crée une div dans mon li     */
@@ -43,7 +43,7 @@ function newLi(data) {
         var tmp2 = document.createElement('span');
         tmp2.innerText=elt+': '+data[elt];
         var br = document.createElement('br');
-        div.appendChild(tmp2);      //ATTENTTION A L BONNE ECRITURE
+        div.appendChild(tmp2);      //ATTENTTION A LA BONNE ECRITURE
         div.appendChild(br);
     }
 

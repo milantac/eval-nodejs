@@ -1,27 +1,29 @@
-var xhttp=new XMLHttpRequest();
+var xhttpStudent=new XMLHttpRequest();
 
-/*-- -- -- On créé une fonction qui permet d'envoyer un nouvel établissement au server -- -- --*/
-function addSchool(){    
-/*  Je déclare l'ensemble des informations de mon formulaire  */
-    var nameSchool = document.querySelector('#nameSchool');
-    var adressSchool = document.querySelector('#adressSchool');
-    var dptSchool = document.querySelector('#dptSchool');
+function addStudent(){    
+/*  ensemble des informations de mon formulaire  */
+    var nameStudent = document.querySelector('#nameStudent');
+    var surnameStudent = document.querySelector('#surnameStudent');
+    var birthdayStudent = document.querySelector('#birthdayStudent');
+    var lvlStudent = document.querySelector('#lvlStudent');
+    var adressStudent = document.querySelector('#adressStudent');
 
 /* objet temporaire respectant la même structure que le schéma du model */
-    var tmp={
-        nameSchool: nameSchool.value,
-        adressSchool: adressSchool.value,
-        dptSchool: dptSchool.value,
+    var tmpStudent={
+        nameStudent: nameStudent.value,
+        surnameStudent: surnameStudent.value,
+        birthdayStudent: birthdayStudent.value,
+        lvlStudent: lvlStudent.value,
+        adressStudent: adressStudent.value,
     };
 
-    xhttp.open('POST','/schools',true);
-    xhttp.setRequestHeader('Content-type','Application/json');
-/*  JSON.stringify() méthode qui converti un objet en string    */
-    xhttp.send(JSON.stringify(tmp));
-    addOneLine(tmp);
-    document.forms['formSpe'].reset();  //  je selectionnes parmis tous les forms de la page celui d'identifiant formSpe
+    xhttpStudent.open('POST','/students',true);
+    xhttpStudent.setRequestHeader('Content-type','Application/json');
+    xhttpStudent.send(JSON.stringify(tmpStudent));// JSON.stringify() méthode qui converti un objet en string
+    addOneLineStudent(tmpStudent);
+    document.forms['formSpeStudent'].reset();  //  je selectionnes parmis tous les forms de la page celui d'identifiant formSpe
     //                          |=>.reset() permet de remettre à vide les champs du form
-    window.location.href='/pages/school.html'; 
+    window.location.href='/pages/student.html'; 
 /*      |      |=>location.href c'est l'emplacement dans votre barre de recherche   
         |=>  L'objet window c'est pour le navigateur  */        
 };
@@ -31,10 +33,10 @@ function addSchool(){
 |      fonction qui permet de supprimer      |
 |        un établissement au serveur         |
 |____________________________________________*/
-function deleteSchool(id){
-    xhttp.open('DELETE','/schools/'+id,true);
-    xhttp.send();
-    window.location.href='/pages/school.html';
+function deleteStudent(id){
+    xhttpStudent.open('DELETE','/students/'+id,true);
+    xhttpStudent.send();
+    window.location.href='/pages/student.html';
 };
 
 /*___________________________________________*
@@ -42,21 +44,21 @@ function deleteSchool(id){
 |      fonction qui permet de ajouter        |
 |        un établissement au serveur         |
 |____________________________________________*/
-function addOneLine(data){
-    var tab=document.querySelector('#schools');
+function addOneLineStudent(data){
+    var tab=document.querySelector('#students');
     var newLine=document.createElement('tr');   //on va crée un tr au tableau School
     for(const prop in data){
         if(prop!='_id'&&prop!='__v'){
-            var tmp=document.createElement('td');
-            tmp.innerText=data[prop];   //data.prop
-            newLine.appendChild(tmp);
+            var tmpStudent=document.createElement('td');
+            tmpStudent.innerText=data[prop];   //data.prop
+            newLine.appendChild(tmpStudent);
         }
     }
 
     /* Je créé un lien vers la page détail    */
     var tdLink = document.createElement('td');
     var link = document.createElement('a');
-    link.href = '/pages/detailSchool.html#' + data._id;//obliger de mettre # sinon envoie sur un mauvais lien
+    link.href = '/pages/detailstudent.html#'+data._id;
     link.innerText = 'Détails';
     tdLink.appendChild(link);
     newLine.appendChild(tdLink);
@@ -70,27 +72,27 @@ function addOneLine(data){
     newLine.appendChild(tdSuppr);
   
     btnSuppr.addEventListener('click', (e) => {
-      deleteSchool(data._id);
+      deleteStudent(data._id);
     });
 
     tab.appendChild(newLine);
 }
 
 /* Je crée l'écouteur d'évenement associé au click du bouton validation  */
-var btn = document.querySelector('#valid');
+var btn = document.querySelector('#validStudent');
 btn.addEventListener('click', (e)=>{
     e.preventDefault(); //je stop l'action par defaut du bouton
-    addSchool();
+    addStudent();
 });
 
 /*  Afficher les information en BdD */
-xhttp.open('GET','/schools',true);
-xhttp.send();
-xhttp.onreadystatechange = function(){
+xhttpStudent.open('GET','/students',true);
+xhttpStudent.send();
+xhttpStudent.onreadystatechange = function(){
     if(this.readyState == 4 && this.status == 200) {
         var data=JSON.parse(this.responseText);
         data.forEach(elt => {
-            addOneLine(elt);
+            addOneLineStudent(elt);
         });
     }
 };

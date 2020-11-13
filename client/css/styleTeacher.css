@@ -1,0 +1,52 @@
+body{
+    text-align: center;
+    background-image: url('/img/teacher.jpg');
+    background-repeat: no-repeat;	/*pour que l'image de fond ne se repete pas*/
+}
+nav{
+    text-align: end;
+    margin: auto;
+    padding-right: 5vh;
+}
+nav a{
+    margin: 2vh;
+}
+h1{
+    border-radius: 50%;
+}
+.table{
+    border:black 2px solid;
+}
+tr{
+    border:black 2px solid;
+}
+#borderTeacher{
+    background-color: green;
+    border:black 2px solid;
+}
+td{
+    background-color:white;
+    border:black 2px solid; 
+}
+#teachers td{
+    margin: auto;
+    background-color: whitesmoke;
+    border: black 2px dotted; 
+} 
+#teachers a{
+    color:green;
+}
+#teachers button{
+    background-color: red;
+    color: black;
+} 
+#tableTeacher{
+    border: black 6px double;
+    background-color: rgb(255, 45, 115);
+}
+#validTeacher{
+    color:black;
+    background-color: green;
+    border: black 3px;
+    border-radius: 50%;
+}

@@ -1,27 +1,28 @@
 var xhttp=new XMLHttpRequest();
 
-/*-- -- -- On créé une fonction qui permet d'envoyer un nouvel établissement au server -- -- --*/
-function addSchool(){    
+function addTeacher(){    
 /*  Je déclare l'ensemble des informations de mon formulaire  */
-    var nameSchool = document.querySelector('#nameSchool');
-    var adressSchool = document.querySelector('#adressSchool');
-    var dptSchool = document.querySelector('#dptSchool');
+    var nameTeacher = document.querySelector('#nameTeacher');
+    var surnameTeacher = document.querySelector('#surnameTeacher');
+    var birthdayTeacher = document.querySelector('#birthdayTeacher');
+    var adressTeacher = document.querySelector('#adressTeacher');
 
 /* objet temporaire respectant la même structure que le schéma du model */
     var tmp={
-        nameSchool: nameSchool.value,
-        adressSchool: adressSchool.value,
-        dptSchool: dptSchool.value,
+        nameTeacher: nameTeacher.value,
+        surnameTeacher: surnameTeacher.value,
+        birthdayTeacher: birthdayTeacher.value,
+        adressTeacher: adressTeacher.value,
     };
 
-    xhttp.open('POST','/schools',true);
+    xhttp.open('POST','/teachers',true);
     xhttp.setRequestHeader('Content-type','Application/json');
 /*  JSON.stringify() méthode qui converti un objet en string    */
     xhttp.send(JSON.stringify(tmp));
     addOneLine(tmp);
     document.forms['formSpe'].reset();  //  je selectionnes parmis tous les forms de la page celui d'identifiant formSpe
     //                          |=>.reset() permet de remettre à vide les champs du form
-    window.location.href='/pages/school.html'; 
+    window.location.href='/pages/teacher.html'; 
 /*      |      |=>location.href c'est l'emplacement dans votre barre de recherche   
         |=>  L'objet window c'est pour le navigateur  */        
 };
@@ -31,10 +32,10 @@ function addSchool(){
 |      fonction qui permet de supprimer      |
 |        un établissement au serveur         |
 |____________________________________________*/
-function deleteSchool(id){
-    xhttp.open('DELETE','/schools/'+id,true);
+function deleteTeacher(id){
+    xhttp.open('DELETE','/teachers/'+id,true);
     xhttp.send();
-    window.location.href='/pages/school.html';
+    window.location.href='/pages/teacher.html';
 };
 
 /*___________________________________________*
@@ -43,7 +44,7 @@ function deleteSchool(id){
 |        un établissement au serveur         |
 |____________________________________________*/
 function addOneLine(data){
-    var tab=document.querySelector('#schools');
+    var tab=document.querySelector('#teachers');
     var newLine=document.createElement('tr');   //on va crée un tr au tableau School
     for(const prop in data){
         if(prop!='_id'&&prop!='__v'){
@@ -56,7 +57,7 @@ function addOneLine(data){
     /* Je créé un lien vers la page détail    */
     var tdLink = document.createElement('td');
     var link = document.createElement('a');
-    link.href = '/pages/detailSchool.html#' + data._id;//obliger de mettre # sinon envoie sur un mauvais lien
+    link.href = '/pages/detailteacher.html#'+data._id;
     link.innerText = 'Détails';
     tdLink.appendChild(link);
     newLine.appendChild(tdLink);
@@ -70,21 +71,21 @@ function addOneLine(data){
     newLine.appendChild(tdSuppr);
   
     btnSuppr.addEventListener('click', (e) => {
-      deleteSchool(data._id);
+      deleteTeacher(data._id);
     });
 
     tab.appendChild(newLine);
 }
 
 /* Je crée l'écouteur d'évenement associé au click du bouton validation  */
-var btn = document.querySelector('#valid');
+var btn = document.querySelector('#validTeacher');
 btn.addEventListener('click', (e)=>{
     e.preventDefault(); //je stop l'action par defaut du bouton
-    addSchool();
+    addTeacher();
 });
 
 /*  Afficher les information en BdD */
-xhttp.open('GET','/schools',true);
+xhttp.open('GET','/teachers',true);
 xhttp.send();
 xhttp.onreadystatechange = function(){
     if(this.readyState == 4 && this.status == 200) {

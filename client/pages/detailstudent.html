@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/style.css">
+  <title>Détail</title>
+</head>
+<body>
+  <div id="corps">
+    <a href="/pages/student.html">Liste des éleves</a>
+    <h1>Détails</h1>
+    <form id="students">
+
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="nameStudent">Nom de l'élève</label>
+                    <br>
+                    <input type="text" class="form-control" id="nameStudent">
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="surnameStudent">Prénom de l'élève</label>
+                    <br>
+                    <input type="text" class="form-control" id="surnameStudent">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="birthdayStudent">date de naissance (ddmmaaaa)</label>
+                    <br>
+                    <input type="text" class="form-control" id="birthdayStudent">
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <label for="lvlStudent">niveau de l'élève</label>
+                    <br>
+                    <input type="text" class="form-control" id="lvlStudent">
+                </div>
+            </div>
+      </div>
+
+      <div class="row">
+            <div class="col-9">
+            <div class="form-group">
+                <label for="adressStudent">Adresse de l'élève</label>
+                <br>
+                <input type="text" class="form-control" id="adressStudent">
+            </div>
+            </div>
+            <div class="col-3">
+                <div class="validation">
+                    <button class="btn btn-outline-success" id="modifStudent">Modifier</button>
+                </div>
+            </div>
+      </div>
+    </form>
+  </div>
+  <script src="/js/detailStudent.js"></script>
+  <footer>by MILANTONI - Guillaume </footer>
+</body>
+</html>

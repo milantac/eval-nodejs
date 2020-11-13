@@ -4,25 +4,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/styleSchool.css">
   <title>Liste</title>
 </head>
 <body>
   <div id="corps">
-    <a href="/">Accueil</a>
+    <nav>
+      <strong>
+        <a href="/" class="home">Accueil</a>
+        <a href="teacher.html" class="teacher">Enseignants</a>
+        <a href="student.html" class="student">Elèves</a>
+      </strong>
+    </nav>
+    
     <h1 class="col-10">Etablissement</h1>
     <div class="container">
       <div class="row">
         <div class="col-8">
           <table class="table table-sm table-bordered table-striped">
             <thead>
-              <tr>
-                <th>Nom de l'établissement</th>
-                <th>Adresse de l'établissement</th>
-                <th>Département de l'établissement</th>
+              <tr id="borderSchool">
+                <th id="borderSchool">Nom de l'établissement</th>
+                <th id="borderSchool">Adresse de l'établissement</th>
+                <th id="borderSchool">Département de l'établissement</th>
               </tr>
             </thead>
-            <tbody id="School">
+            <tbody id="schools">
 
             </tbody>
           </table>
@@ -39,7 +46,7 @@
               </div>
               <div class="col-6">
                 <div class="form-group">
-                  <label for="AdressSchool">Adresse</label>
+                  <label for="adressSchool">Adresse</label>
                   <br>
                   <input type="text" class="form-control" id="adressSchool">
                 </div>

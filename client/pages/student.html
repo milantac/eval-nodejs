@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/styleStudent.css">
+  <title>Elèves</title>
+</head>
+<body>
+  <div id="corps">
+    <nav>
+      <a href="/">Accueil</a>
+      <a href="teacher.html">Enseignants</a>
+      <a href="school.html">Etablissement</a>
+    </nav>
+    
+    <h1 class="col-10">liste des Elèves</h1>
+    <div class="container">
+      <div class="row">
+        <div class="col-8">
+          <table class="table table-sm table-bordered table-striped" id="bordure">
+            <thead>
+              <tr id="borderStudent">
+                <th id="borderStudent">Nom de l'élève</th>
+                <th id="borderStudent">Prénom de l'élève</th>
+                <th id="borderStudent">Date de naissance de l'élève</th>
+                <th id="borderStudent">Niveau de l'élève</th>
+                <th id="borderStudent">Adresse de l'élève</th>
+              </tr>
+            </thead>
+            <tbody id="students">
+
+            </tbody>
+          </table>
+        </div>
+        <div class="col-4" id="formStudent">
+          <form name="form" id="formSpeStudent">
+            <div class="row" id="tableStudent">
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="nameStudent"><strong>Nom:</strong></label>
+                  <br>
+                  <input type="text" class="form-control" id="nameStudent">
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="surnameStudent"><strong>Prénom:</strong></label>
+                  <br>
+                  <input type="text" class="form-control" id="surnameStudent">
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="lvlStudent"><strong>Niveau de l'élève:</strong></label>
+                  <br>
+                  <input type="text" class="form-control" id="lvlStudent">
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="birthdayStudent"><strong>Date de Naissance: (JJMMAAAA)</strong></label>
+                  <br>
+                  <input type="text" class="form-control" id="birthdayStudent">
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="adressStudent"><strong>Adresse de l'élève:</strong></label>
+                  <input type="text" class="form-control" id="adressStudent">
+                </div>
+              </div>
+            </div>
+          </form>
+          <div class="validation">
+            <br>
+            <button class="btn btn-outline-success" id="validStudent"><strong>Valider</strong></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="/js/student.js"></script>
+  <footer>by MILANTONI - Guillaume </footer>
+</body>
+</html>

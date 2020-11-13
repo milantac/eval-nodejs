@@ -6,22 +6,21 @@
 
 
 /*  Je déclare l'ensemble des informations de mon formulaire  */
-var name = document.querySelector('#nameSchool');
-var adress = document.querySelector('#AdressSchool');
-var dpt = document.querySelector('#dptSchool');
+var nameSchool = document.querySelector('#nameSchool');
+var adressSchool = document.querySelector('#adressSchool');
+var dptSchool = document.querySelector('#dptSchool');
 
-/*  Je recupere l'identifiant du film   */
+/*  Je recupere l'identifiant de l'établissement   */
 var url=window.location;
 /*          |=> l'obect window contien plein d'informations lié au navigateur
                                                     |=> y compris son url   */
-var schoolsId=url.hash;    //J'utilise la propriété hash de mon url pour récupérer l'identifiant
-
-schoolsId=schoolsId.substring(1);
+var SchoolsId=url.hash;    //J'utilise la propriété hash de mon url pour récupérer l'identifiant
+SchoolsId=SchoolsId.substring(1);
 /*              |=>la méthode substring(<indiceDépart>, <indiceFin>)  "indiceFin est optionel"  */
 
 var xhttp=new XMLHttpRequest();
 
-xhttp.open('GET', '/school/'+schoolsId, true);
+xhttp.open('GET', '/schools/' + SchoolsId, true);
 xhttp.send();
 xhttp.onreadystatechange=function(){
     if(this.readyState==4 && this.status==200){
@@ -29,27 +28,27 @@ xhttp.onreadystatechange=function(){
         console.log(data);
         console.log(this.responseText);
     
-        name.value=data.name;
-        adress.value=data.adress;
-        dpt.value=data.dpt;
+        nameSchool.value=data.nameSchool;
+        adressSchool.value=data.adressSchool;
+        dptSchool.value=data.dptSchool;
     }
 }
-function modify(){
-    var tmp={  // Je créé un objet temporaire respectant le schéma du model
-        name: name.value,
-        adress: adress.value,
-        dpt: dpt.value,
+function modifySchool(){
+    var tmpSchool={  // Je créé un objet temporaire respectant le schéma du model
+        nameSchool: nameSchool.value,
+        adressSchool: adressSchool.value,
+        dptSchool: dptSchool.value,
     };
-    xhttp.open('PUT','/school/'+schoolsId,true);
+    xhttp.open('PUT','/schools/' + SchoolsId,true);
     /* comme je vais envoyer des informations, je dois préciser une requête */
     xhttp.setRequestHeader('Content-type', 'application/json');
-    xhttp.send(JSON.stringify(tmp));
+    xhttp.send(JSON.stringify(tmpSchool));
 }
 
-var btn = document.querySelector('#modif');
+var btn = document.querySelector('#modifSchool');
 btn.addEventListener('click', (e) => {
     e.preventDefault();
-    modify();
+    modifySchool();
     // Je me redirige vers la liste des car
     window.location.href = '/pages/school.html';
 });

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/styleTeacher.css">
+  <title>Liste des enseignants</title>
+</head>
+<body>
+  <div id="corps">
+    <nav>
+      <a href="/">Accueil</a>
+      <a href="student.html">Elèves</a>
+      <a href="school.html">Etablissement</a>
+    </nav>
+    
+    <h1 class="col-10">liste des enseignants</h1>
+    <div class="container">
+      <div class="row">
+        <div class="col-8">
+          <table class="table table-sm table-bordered table-striped" id="bordure">
+            <thead>
+              <tr id="borderTeacher">
+                <th id="borderTeacher">Nom de l'enseignant</th>
+                <th id="borderTeacher">Prénom de l'enseignant</th>
+                <th id="borderTeacher">Date de naissance de l'enseignant</th>
+                <th id="borderTeacher">Adresse de l'enseignant</th>
+              </tr>
+            </thead>
+            <tbody id="teachers">
+
+            </tbody>
+          </table>
+        </div>
+        <div class="col-4" id="formTeacher">
+          <form name="form" id="formSpeTeacher">
+            <div class="row" id="tableTeacher">
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="nameTeacher"><strong>Nom:</strong></label>
+                  <br>
+                  <input type="text" class="form-control" id="nameTeacher">
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="surnameTeacher"><strong>Prénom:</strong></label>
+                  <br>
+                  <input type="text" class="form-control" id="surnameTeacher">
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-group">
+                  <label for="adressTeacher"><strong>Adresse de l'enseignant:</strong></label>
+                  <br>
+                  <input type="text" class="form-control" id="adressTeacher">
+                </div>
+              </div>     
+              <div class="col-12">
+                <label for="birthdayTeacher"><strong>Année de Naissance:</strong></label>
+                <br>
+                <input type="text" class="form-control" id="birthdayTeacher">  
+              </div>
+              <div class="col-12">
+                <div class="validation">
+                  <br>
+                  <button class="btn btn-outline-success" id="validTeacher"><stong>Valider</stong></button>
+                </div>
+              </div>         
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="/js/teacher.js"></script>
+</body>
+</html>
